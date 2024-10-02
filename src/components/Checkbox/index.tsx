@@ -1,4 +1,4 @@
-import GroupCheckbox from "../GroupCheckbox";
+import GroupCheckbox from '../GroupCheckbox';
 export default function Checkbox({
   name,
   onChange,
@@ -28,7 +28,7 @@ export default function Checkbox({
 }) {
   const customCheckboxStyle = {
     backgroundImage: `url(${checked ? customIcon?.checked : customIcon?.unChecked})`,
-    backgroundSize: "cover",
+    backgroundSize: 'cover',
     width: customIcon?.size || 16,
     height: customIcon?.size || 16,
   };
@@ -36,6 +36,7 @@ export default function Checkbox({
     width: customIcon?.size || 16,
     height: customIcon?.size || 16,
   };
+  const idString = id !== undefined ? id.toString() : name;
 
   return (
     <label className={parentClassName}>
@@ -44,15 +45,15 @@ export default function Checkbox({
           <input
             className={` absolute z-10 visible opacity-0`}
             type="checkbox"
-            id={name}
-            data-id={id || name}
+            id={idString}
+            data-id={idString}
             name={name}
             checked={checked}
             onChange={onChange}
             disabled={disabled}
           />
           <label
-            htmlFor={name}
+            htmlFor={idString}
             style={customCheckboxStyle}
             className="block bg-cover cursor-pointer"
           ></label>
@@ -61,8 +62,8 @@ export default function Checkbox({
         <input
           className={inputClassName}
           type="checkbox"
-          id={name}
-          data-id={id || name}
+          id={idString}
+          data-id={idString}
           name={name}
           checked={checked}
           onChange={onChange}
@@ -70,7 +71,7 @@ export default function Checkbox({
         />
       )}
       {label ? (
-        <label className={labelClassName} htmlFor={name}>
+        <label className={labelClassName} htmlFor={idString}>
           {label}
         </label>
       ) : null}

@@ -39,7 +39,7 @@ export default function GroupCheckbox(props: groupCheckBoxType) {
     let updateList;
     if (selectType == "multiple") {
       updateList = mainData.map((item: any) => {
-        if (item.name == e.target.id) {
+        if (item.id == e.target.id || item.name == e.target.id) {
           if (item.checked) {
             item.checked = false;
           } else {
@@ -50,7 +50,7 @@ export default function GroupCheckbox(props: groupCheckBoxType) {
       });
     } else if (selectType == "single") {
       updateList = mainData.map((item: any) => {
-        if (item.name == e.target.id) {
+        if (item.id == e.target.id || item.name == e.target.id) {
           if (item.checked) {
             item.checked = false;
           } else {
@@ -83,6 +83,7 @@ export default function GroupCheckbox(props: groupCheckBoxType) {
         ? showData.map((item: listItemType, index: number) => {
             return (
               <Checkbox
+                id={item.id || item.name}
                 disabled={item.disabled}
                 parentClassName={checkboxFilledClassName}
                 labelClassName={labelClassName}
