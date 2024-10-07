@@ -1,4 +1,4 @@
-import GroupCheckbox from '../GroupCheckbox';
+import GroupCheckbox from "../GroupCheckbox";
 export default function Checkbox({
   name,
   onChange,
@@ -28,7 +28,7 @@ export default function Checkbox({
 }) {
   const customCheckboxStyle = {
     backgroundImage: `url(${checked ? customIcon?.checked : customIcon?.unChecked})`,
-    backgroundSize: 'cover',
+    backgroundSize: "cover",
     width: customIcon?.size || 16,
     height: customIcon?.size || 16,
   };
@@ -39,7 +39,7 @@ export default function Checkbox({
   const idString = id !== undefined ? id.toString() : name;
 
   return (
-    <label className={parentClassName}>
+    <label className={parentClassName} data-active={checked}>
       {customIcon ? (
         <div style={inputContainerStyle} className="cursor-pointer">
           <input
